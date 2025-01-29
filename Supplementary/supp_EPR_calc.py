@@ -2,6 +2,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+# this code calculates the delta(p) which is the uncertainty in the momenta
+# see the manuscript for the background and derivation
+
 cov = np.array([[0, -75.0319, -84.6724, 80.883],
                [-81.7206, 0, 87.801, -94.4123],
                [-77.063, 83.5677, 0, -73.0699],
@@ -14,7 +17,6 @@ cov[2, 2] = 0
 cov[3, 3] = 0
 
 # cov = cov.reshape((2, 2, 2, 2))
-
 
 def sum_coordinates(cov, H=4, W=4):
     sum_cov = np.zeros((H * 2, W * 2))
