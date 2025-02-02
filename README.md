@@ -6,8 +6,8 @@ Manuscript authors: Amit Kam, Shai Tsesses, Yigal Ilin, Kobi Cohen, Yaakov Lumer
 #
 There are 3 folders, each for the corresponding part in the manuscript: Figure 3, Figure 4 and Supplementary Material. Below are the contents of each folder:  
 
-Fig1/Code: Matlab code for em field projection calculation.
-Fig2: Images of modes displayed in Figure 2 in the manuscript, tam1 (tamm1) stands for total angular momentum of (minus) 1.
+Fig1/Code: Matlab code for em field projection calculation.  
+Fig2: Images of modes displayed in Figure 2 in the manuscript, tam1 (tamm1) stands for total angular momentum of (minus) 1.  
 Fig3/Code: Matlab code used to calculate correlations & distribution of correlations.  
 Fig3/Data: Experimental data in Matlab format.  
 Fig4/Code: Python code used to calculate the fidelity between the predicted and experimentally obtained density matrix, including error analysis using bootstrapping.  
