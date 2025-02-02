@@ -1,10 +1,10 @@
 
 
 
-
+# packages
 import torch
 
-
+# cuda init
 cuda0 = torch.device('cuda:0')
 
 
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     tomography_mat[0, 1] = tomography_mat[1, 0]
     
     
-    # num of bootstrap iteration
+    # example num of bootstrap iterations
     bootstrap_num = 1000
     
     
@@ -134,7 +134,8 @@ if __name__ == '__main__':
         psd_hermitian_test, test_message = is_psd_and_hermitian(tomography_mat)
         print(test_message, "at bootstrap step", bootstrap_step)
         
-        # if not PSD then do the optim
+        # if not PSD then do the optimization to find
+        # the closest PSD approximation to the current realization
         if psd_hermitian_test == False:
             
             # do several trials for noiseless
@@ -169,7 +170,7 @@ if __name__ == '__main__':
                 best_step_id = 0
                 best_estimated_mat = torch.zeros(estimated_mat.size(), dtype=torch.complex128, device=cuda0)
             
-                # Optimization steps number
+                # example ptimization steps number
                 optim_steps = 3000
                 
                 
@@ -232,9 +233,11 @@ if __name__ == '__main__':
             fidelity_vector[bootstrap_step] = current_fidelity
             purity_vector[bootstrap_step] = current_purity
             
+            # save on disk
             torch.save(fidelity_vector, 'fidelity_vector.pt')
             torch.save(purity_vector, 'purity_vector.pt')
             
+            # print stats for the current bootstrap step
             print("\nFidelity", current_fidelity.tolist(), "at bootstrap step", bootstrap_step)
             print("Purity", current_purity.tolist(), "at bootstrap step", bootstrap_step, "\n")
             
@@ -251,9 +254,11 @@ if __name__ == '__main__':
             fidelity_vector[bootstrap_step] = current_fidelity
             purity_vector[bootstrap_step] = current_purity
             
+            # save on disk
             torch.save(fidelity_vector, 'fidelity_vector.pt')
             torch.save(purity_vector, 'purity_vector.pt')
             
+            # print stats for the current bootstrap step
             print("\nFidelity", current_fidelity.tolist(), "at bootstrap step", bootstrap_step)
             print("Purity", current_purity.tolist(), "at bootstrap step", bootstrap_step, "\n")
         
